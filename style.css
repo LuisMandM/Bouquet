@@ -7,9 +7,9 @@
 body{
     overflow:hidden;
     background: radial-gradient(circle at top,
-        #18253f 0%,
-        #0d1528 50%,
-        #050816 100%);
+        #1a1b3a 0%,
+        #0a0b1e 60%,
+        #03030b 100%);
     font-family: Georgia, serif;
 }
 
@@ -21,10 +21,9 @@ body{
 /* 🌿 TALLOS */
 .stem{
     fill:none;
-    stroke:#5E8B5A;
+    stroke:#41663e;
     stroke-width:8;
     stroke-linecap:round;
-
     stroke-dasharray:1200;
     stroke-dashoffset:1200;
     animation: draw 4s forwards;
@@ -32,8 +31,8 @@ body{
 
 /* 🌱 HOJAS */
 .leaf{
-    fill:#6E9C68;
-    stroke:#4D6D49;
+    fill:#4d754a;
+    stroke:#2d472b;
     stroke-width:2;
 }
 
@@ -47,20 +46,9 @@ body{
     to{ stroke-dashoffset:0; }
 }
 
-/* 🌸 FLORES WRAPPER (posición segura) */
+/* 🌸 ESTRUCTURA ANIMACIÓN FLORES */
 .flower-wrap{
     opacity:0;
-}
-
-/* 🌸 FLOR (solo animación, sin translate nunca) */
-.flower{
-    transform-box: fill-box;
-    transform-origin: center;
-}
-
-/* 🌸 ANIMACIÓN */
-.flower-wrap{
-    opacity: 0;
     animation: appear 0.2s forwards;
 }
 
@@ -83,7 +71,58 @@ body{
     to   { transform: scale(1); }
 }
 
-/*svg g{
+svg g{
     transform-box: fill-box;
     transform-origin: center;
-}*/
+}
+
+/* ==========================================
+   ✨ EFECTOS MÁGICOS: BRILLO Y MOVIMIENTO
+   ========================================== */
+
+/* 1. Aura de luz detrás de los pétalos */
+.glow-aura {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulseGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(0.85); opacity: 0.2; }
+    100% { transform: scale(1.25); opacity: 0.45; }
+}
+
+/* 2. Destello del pistilo central */
+.flower-core {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulseCore 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseCore {
+    0% { opacity: 0.8; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.1); }
+}
+
+/* 3. Vaivén suave (Sway) simulando viento nocturno */
+.flower-sway {
+    transform-box: fill-box;
+    transform-origin: center bottom; /* El pivote es la base */
+    animation: sway 5s ease-in-out infinite alternate;
+}
+
+/* Desincronizamos las flores para que se muevan de forma orgánica y única */
+.delay2 .flower-sway {
+    animation-duration: 6s;
+    animation-delay: -1.5s;
+}
+
+.delay3 .flower-sway {
+    animation-duration: 5.5s;
+    animation-delay: -3s;
+}
+
+@keyframes sway {
+    0% { transform: rotate(-3deg) translateY(0px); }
+    100% { transform: rotate(3deg) translateY(-4px); }
+}
