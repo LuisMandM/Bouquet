@@ -1,58 +1,105 @@
-<svg id="bouquet" viewBox="0 0 800 700">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores para Sofi ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Añadimos estilos para organizar el texto y las luciérnagas */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+        #fireflies {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        #bouquet {
+            position: relative;
+            z-index: 2;
+        }
+        .container-text {
+            position: relative;
+            z-index: 2;
+            margin-top: -50px; /* Ajusta la posición del texto sobre el ramo */
+        }
+        #title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #f7e7a9;
+        }
+        #message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            white-space: pre-line; /* Clave para que respete los saltos de línea del JS */
+        }
+    </style>
+</head>
+<body>
 
-    <!-- TALLOS -->
-    <path class="stem"
-          d="M400 620 C380 520 340 420 280 260"/>
+    <canvas id="fireflies"></canvas>
 
-    <path class="stem"
-          d="M400 620 C420 520 470 420 540 260"/>
+    <svg id="bouquet" viewBox="0 0 800 700">
+        <path class="stem" d="M400 620 C380 520 340 420 280 260"/>
+        <path class="stem" d="M400 620 C420 520 470 420 540 260"/>
+        <path class="stem" d="M400 620 C400 520 400 420 400 220"/>
 
-    <path class="stem"
-          d="M400 620 C400 520 400 420 400 220"/>
+        <path class="leaf draw" d="M300 360 C250 320 250 250 320 260 C370 270 360 340 300 360Z"/>
+        <path class="leaf draw" d="M500 350 C570 320 590 250 520 260 C470 270 450 330 500 350Z"/>
+        <path class="leaf draw" d="M390 310 C330 260 330 210 400 220 C460 240 450 300 390 310Z"/>
 
-    <!-- HOJAS -->
-    <path class="leaf draw"
-          d="M300 360 C250 320 250 250 320 260 C370 270 360 340 300 360Z"/>
-
-    <path class="leaf draw"
-          d="M500 350 C570 320 590 250 520 260 C470 270 450 330 500 350Z"/>
-
-    <path class="leaf draw"
-          d="M390 310 C330 260 330 210 400 220 C460 240 450 300 390 310Z"/>
-
-    <!-- 🌸 FLORES (ESTRUCTURA SEGURA) -->
-
-    <g class="flower-wrap delay1" transform="translate(260 220)">
-        <g class="flower">
-            <circle r="35" fill="#C84C5A"/>
-            <circle cx="-25" cy="0" r="25" fill="#E97A7A"/>
-            <circle cx="25" cy="0" r="25" fill="#E97A7A"/>
-            <circle cy="-25" r="25" fill="#E8A0A8"/>
-            <circle cy="25" r="25" fill="#E8A0A8"/>
-            <circle r="10" fill="#F7E7A9"/>
+        <g class="flower-wrap delay1" transform="translate(260 220)">
+            <g class="flower">
+                <circle r="35" fill="#C84C5A"/>
+                <circle cx="-25" cy="0" r="25" fill="#E97A7A"/>
+                <circle cx="25" cy="0" r="25" fill="#E97A7A"/>
+                <circle cy="-25" r="25" fill="#E8A0A8"/>
+                <circle cy="25" r="25" fill="#E8A0A8"/>
+                <circle r="10" fill="#F7E7A9"/>
+            </g>
         </g>
-    </g>
 
-    <g class="flower-wrap delay2" transform="translate(540 220)">
-        <g class="flower">
-            <circle r="35" fill="#A93F55"/>
-            <circle cx="-25" cy="0" r="25" fill="#D66C80"/>
-            <circle cx="25" cy="0" r="25" fill="#D66C80"/>
-            <circle cy="-25" r="25" fill="#F7C6C7"/>
-            <circle cy="25" r="25" fill="#F7C6C7"/>
-            <circle r="10" fill="#F7E7A9"/>
+        <g class="flower-wrap delay2" transform="translate(540 220)">
+            <g class="flower">
+                <circle r="35" fill="#A93F55"/>
+                <circle cx="-25" cy="0" r="25" fill="#D66C80"/>
+                <circle cx="25" cy="0" r="25" fill="#D66C80"/>
+                <circle cy="-25" r="25" fill="#F7C6C7"/>
+                <circle cy="25" r="25" fill="#F7C6C7"/>
+                <circle r="10" fill="#F7E7A9"/>
+            </g>
         </g>
-    </g>
 
-    <g class="flower-wrap delay3" transform="translate(400 180)">
-        <g class="flower">
-            <circle r="40" fill="#C84C5A"/>
-            <circle cx="-30" cy="0" r="28" fill="#E97A7A"/>
-            <circle cx="30" cy="0" r="28" fill="#E97A7A"/>
-            <circle cy="-30" r="28" fill="#F7C6C7"/>
-            <circle cy="30" r="28" fill="#F7C6C7"/>
-            <circle r="12" fill="#F7E7A9"/>
+        <g class="flower-wrap delay3" transform="translate(400 180)">
+            <g class="flower">
+                <circle r="40" fill="#C84C5A"/>
+                <circle cx="-30" cy="0" r="28" fill="#E97A7A"/>
+                <circle cx="30" cy="0" r="28" fill="#E97A7A"/>
+                <circle cy="-30" r="28" fill="#F7C6C7"/>
+                <circle cy="30" r="28" fill="#F7C6C7"/>
+                <circle r="12" fill="#F7E7A9"/>
+            </g>
         </g>
-    </g>
+    </svg>
 
-</svg>
+    <div class="container-text">
+        <h1 id="title"></h1>
+        <p id="message"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
