@@ -83,7 +83,7 @@ body{
     to   { transform: scale(1); }
 }
 
-svg g{
+/*svg g{
     transform-box: fill-box;
     transform-origin: center;
-}
+}*/
