@@ -1,0 +1,128 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    background:
+        radial-gradient(circle at top,
+        #18253f 0%,
+        #0d1528 50%,
+        #050816 100%);
+    font-family: Georgia, serif;
+}
+
+#fireflies{
+    position:fixed;
+    inset:0;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+#bouquet{
+    width:min(90vw,650px);
+    height:auto;
+}
+
+.stem{
+    fill:none;
+    stroke:#5E8B5A;
+    stroke-width:8;
+    stroke-linecap:round;
+
+    stroke-dasharray:1200;
+    stroke-dashoffset:1200;
+
+    animation:draw 4s forwards;
+}
+
+.draw{
+    stroke-dasharray:1200;
+    stroke-dashoffset:1200;
+    animation:draw 4s forwards;
+}
+
+.leaf{
+    fill:#6E9C68;
+    stroke:#4D6D49;
+    stroke-width:2;
+}
+
+@keyframes draw{
+    to{
+        stroke-dashoffset:0;
+    }
+}
+
+.flower{
+    transform-origin:center;
+    opacity:0;
+}
+
+.bloom{
+    animation:bloom 1.4s forwards;
+}
+
+.delay1{
+    animation-delay:3s;
+}
+
+.delay2{
+    animation-delay:4s;
+}
+
+.delay3{
+    animation-delay:5s;
+}
+
+@keyframes bloom{
+    from{
+        opacity:0;
+        transform:scale(0);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+#title{
+    margin-top:20px;
+    color:white;
+    font-size:clamp(32px,4vw,58px);
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px rgba(255,200,200,.7);
+}
+
+#message{
+    margin-top:20px;
+    color:#F7C6C7;
+
+    text-align:center;
+
+    white-space:pre-line;
+
+    font-size:clamp(18px,2vw,26px);
+
+    max-width:700px;
+
+    line-height:1.8;
+
+    padding:0 20px;
+}
