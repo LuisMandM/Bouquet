@@ -82,3 +82,8 @@ body{
     from { transform: scale(0); }
     to   { transform: scale(1); }
 }
+
+svg g{
+    transform-box: fill-box;
+    transform-origin: center;
+}
