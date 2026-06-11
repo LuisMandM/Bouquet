@@ -11,7 +11,7 @@ Por si no te veo
 y tardan en llegar las siguientes
 flores❤️
 
-Ten un lindo día Test update style
+Ten un lindo día
 `
 };
 
